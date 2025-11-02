@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avero - Questionário</title>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#023859">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registrado ✅'))
+        .catch(err => console.error('Erro ao registrar o Service Worker:', err));
+    });
+  }
+</script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="questionario-screen">
+  <div class="questionario-container">
+    <img src="assets/iris.png" alt="Logo Avero" class="logo-login">
+
+    <!-- Etapa 1 - Introdução -->
+    <section class="etapa ativa" id="etapa1">
+      <h1>Olá!</h1>
+      <p>Eu sou a <strong>Íris</strong>, sua assistente de jornada aqui no Avero.<br>
+      Fui desenvolvida para entender o que você busca e te ajudar a encontrar a faculdade que mais combina com você.</p>
+      <p>Para isso, preciso te conhecer um pouco melhor!</p>
+      <button class="btn full proximo">Começar</button>
+    </section>
+
+    <!-- Etapa 2 - Escolaridade -->
+    <section class="etapa" id="etapa2">
+      <h2>Qual é o seu nível de escolaridade atual?</h2>
+      <form>
+        <label><input type="radio" name="escolaridade" value="fundamental"> Ensino fundamental ou abaixo</label>
+        <label><input type="radio" name="escolaridade" value="1ano"> 1º ano do ensino médio</label>
+        <label><input type="radio" name="escolaridade" value="2ano"> 2º ano do ensino médio</label>
+        <label><input type="radio" name="escolaridade" value="3ano"> 3º ano do ensino médio</label>
+        <label><input type="radio" name="escolaridade" value="concluido"> Já concluí o ensino médio</label>
+        <label><input type="radio" name="escolaridade" value="graduacao"> Já tenho diploma e busco uma segunda graduação</label>
+      </form>
+      <div class="buttons">
+        <button class="btn secondary voltar">Voltar</button>
+        <button class="btn full proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- Etapa 3 - Localização -->
+    <section class="etapa" id="etapa3">
+      <h2>Onde você mora?</h2>
+      <form>
+        <label>Rua:<input type="text" name="rua" placeholder="Ex: Rua das Flores"></label>
+        <label>Bairro:<input type="text" name="bairro" placeholder="Ex: Centro"></label>
+        <label>Cidade:<input type="text" name="cidade" placeholder="Ex: São Paulo"></label>
+        <label>Estado:<input type="text" name="estado" placeholder="Ex: SP"></label>
+      </form>
+      <div class="buttons">
+        <button class="btn secondary voltar">Voltar</button>
+        <button class="btn full proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- Etapa 4 - Curso pretendido -->
+    <section class="etapa" id="etapa4">
+      <h2>Você já sabe qual curso quer fazer?</h2>
+      <form id="cursoForm">
+        <label><input type="radio" name="sabeCurso" value="sim"> Sim</label>
+        <label><input type="radio" name="sabeCurso" value="nao"> Não</label>
+        <div id="cursoCampo" style="display:none;">
+          <label>Digite o nome do curso:<input type="text" name="cursoDesejado" placeholder="Ex: Engenharia da Computação"></label>
+        </div>
+      </form>
+      <div class="buttons">
+        <button class="btn secondary voltar">Voltar</button>
+        <button class="btn full proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- Etapa 5 - Disponibilidade -->
+    <section class="etapa" id="etapa5">
+      <h2>Você tem disponibilidade para uma grade integral?</h2>
+      <form>
+        <label><input type="radio" name="integral" value="sim"> Sim</label>
+        <label><input type="radio" name="integral" value="nao"> Não</label>
+        <label>Em quantos anos gostaria de concluir sua graduação?<input type="number" name="anos" min="1" max="10" placeholder="Ex: 4"></label>
+      </form>
+      <div class="buttons">
+        <button class="btn secondary voltar">Voltar</button>
+        <button class="btn full proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- Etapa 6 - Mobilidade -->
+    <section class="etapa" id="etapa6">
+      <h2>Você estaria disposto(a) a se mudar para estudar?</h2>
+      <form>
+        <label><input type="radio" name="mobilidade" value="nao"> Não</label>
+        <label><input type="radio" name="mobilidade" value="cidade"> Sim, para outra cidade</label>
+        <label><input type="radio" name="mobilidade" value="estado"> Sim, para outro estado</label>
+        <label><input type="radio" name="mobilidade" value="pais"> Sim, inclusive para outro país</label>
+      </form>
+      <div class="buttons">
+        <button class="btn secondary voltar">Voltar</button>
+        <button class="btn full proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- Etapa 7 - Condição financeira -->
+    <section class="etapa" id="etapa7">
+      <h2>Quanto você pode investir mensalmente na faculdade?</h2>
+      <form>
+        <label><input type="radio" name="investimento" value="0"> Nada — quero uma faculdade pública ou bolsa 100%</label>
+        <div class="range-container">
+          <label>Ou defina um valor aproximado:</label>
+          <input type="range" id="slider" name="slider" min="100" max="2000" step="50">
+          <p>Valor selecionado: <strong>R$ <span id="valorSlider">100</span></strong></p>
+        </div>
+      </form>
+      <div class="buttons">
+        <button class="btn secondary voltar">Voltar</button>
+        <button class="btn full proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- Etapa 8 - Histórico -->
+    <section class="etapa" id="etapa8">
+      <h2>Você já fez algum vestibular, simulado ou ENEM?</h2>
+      <form id="historicoForm">
+        <label><input type="radio" name="fezProva" value="sim"> Sim</label>
+        <label><input type="radio" name="fezProva" value="nao"> Não</label>
+        <div id="dadosProva" style="display:none;">
+          <label>Qual prova?<input type="text" name="tipoProva" placeholder="Ex: ENEM, FUVEST..."></label>
+          <label>Média ou acertos:<input type="number" name="media" placeholder="Ex: 700"></label>
+        </div>
+      </form>
+      <div class="buttons">
+        <button class="btn secondary voltar">Voltar</button>
+        <button class="btn full proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- Etapa 9 - Interesses -->
+    <section class="etapa" id="etapa9">
+      <h2>Quais atividades extracurriculares você mais se identifica?</h2>
+      <form class="checkbox-grid">
+        <label><input type="checkbox" value="artes"> Artes</label>
+        <label><input type="checkbox" value="esportes"> Esportes</label>
+        <label><input type="checkbox" value="dança"> Dança</label>
+        <label><input type="checkbox" value="culinaria"> Culinária</label>
+        <label><input type="checkbox" value="musica"> Música</label>
+        <label><input type="checkbox" value="jogos"> Jogos</label>
+        <label><input type="checkbox" value="diplomacia"> Diplomacia / Debates</label>
+        <label><input type="checkbox" value="voluntariado"> Voluntariado / Projetos sociais</label>
+      </form>
+      <div class="buttons">
+        <button class="btn secondary voltar">Voltar</button>
+        <button class="btn full proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- Conclusão -->
+    <section class="etapa" id="etapa10">
+      <h2>Perfeito!</h2>
+      <p>Agora que te conheço melhor, vou montar um perfil personalizado para te mostrar as faculdades, cursos e bolsas que mais combinam com você.</p>
+      <button class="btn full" onclick="window.location.href='home.html'">Ver minhas recomendações</button>
+    </section>
+  </div>
+</body>
+</html>
+
+

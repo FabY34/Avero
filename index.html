@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avero - Início</title>
+
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#023859">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registrado ✅'))
+        .catch(err => console.error('Erro ao registrar o Service Worker:', err));
+    });
+  }
+</script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="splash-screen">
+  <div class="splash-container">
+    <img src="assets/logo.png" alt="Logo Avero" class="logo">
+    <h1 class="slogan">O seu futuro começa aqui.</h1>
+    <div class="buttons">
+      <button class="btn" id="btnEntrar">Entrar</button>
+      <button class="btn secondary" id="btnCadastrar">Criar uma conta</button>
+    </div>
+  </div>
+</body>
+</html>

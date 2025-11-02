@@ -1,0 +1,828 @@
+/* =============================
+   AVERO - Tema Luna Final
+   ============================= */
+
+/* === Reset básico === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Estilo geral === */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #023859;
+  background: linear-gradient(135deg, #011C40, #023859);
+  background-size: 400% 400%;
+  animation: gradientMove 6s ease infinite alternate;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Animação do gradiente === */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* === Animação de aparição === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================
+   SPLASH SCREEN
+   ============================= */
+.splash-container {
+  text-align: center;
+  animation: fadeIn 1.8s ease forwards;
+}
+
+.logo {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.slogan {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #A7EBF2;
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  background-color: #54ACBF;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  margin: 10px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background-color: #26658C;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #A7EBF2;
+  color: #A7EBF2;
+}
+
+/* =============================
+   LOGIN & REGISTRO
+   ============================= */
+body.login-screen,
+body.register-screen {
+  background: linear-gradient(135deg, #011C40, #023859);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-container,
+.register-container {
+  background: linear-gradient(145deg, #064C6B, #0A6B8E); /* azul mais claro interno */
+  padding: 45px 35px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1s ease forwards;
+  color: #EAF7FA;
+}
+
+.logo-login {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.login-container h1,
+.register-container h1 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #A7EBF2;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  color: #D5F3F6;
+  opacity: 0.9;
+}
+
+/* Formulário */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form label {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #EAF7FA;
+}
+
+.form input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #023859;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.form input:focus {
+  outline: 2px solid #A7EBF2;
+}
+
+/* Opções e links */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin: 10px 0 15px;
+  color: #EAF7FA;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #EAF7FA;
+}
+
+.link {
+  color: #A7EBF2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #54ACBF;
+}
+
+/* Botão principal */
+.btn.full {
+  width: 100%;
+  background-color: #54ACBF;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  transition: all 0.3s;
+}
+
+.btn.full:hover {
+  background-color: #26658C;
+}
+
+/* Redes sociais */
+.social-text {
+  margin: 20px 0 10px;
+  color: #EAF7FA;
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Política de privacidade */
+.policy {
+  margin: 15px 0;
+  font-size: 0.85rem;
+  color: #EAF7FA;
+  line-height: 1.4;
+}
+
+.policy a {
+  color: #A7EBF2;
+  text-decoration: underline;
+}
+
+.policy a:hover {
+  color: #54ACBF;
+}
+
+/* Rodapé */
+.footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #EAF7FA;
+}
+
+
+/* =============================
+   QUESTIONÁRIO
+   ============================= */
+body.questionario-screen {
+  background: linear-gradient(135deg, #023859, #011C40);
+  color: #EAF7FA;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 0;
+}
+
+.questionario-container {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.6s ease;
+}
+
+.etapa {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.etapa.ativa {
+  display: block;
+}
+
+.etapa h1, .etapa h2 {
+  color: #A7EBF2;
+  margin-bottom: 1rem;
+}
+
+.etapa p, label {
+  color: #EAF7FA;
+  line-height: 1.4;
+}
+
+/* === Inputs alinhados === */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.4rem 0;
+  border-radius: 10px;
+  border: 1px solid #54ACBF;
+  font-size: 1rem;
+  background: #f8fbfd;
+  color: #011C40;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  color: #26658C;
+}
+
+/* === Botões === */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.buttons .btn {
+  width: 48%;
+  border-radius: 10px;
+  padding: 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Botão principal (Próximo) */
+.btn.full,
+.buttons .btn:not(.secondary) {
+  background: #54ACBF;
+  color: #fff;
+  border: none;
+}
+
+.btn.full:hover,
+.buttons .btn:not(.secondary):hover {
+  background: #26658C;
+}
+
+/* Botão secundário (Voltar) */
+.btn.secondary {
+  background: transparent;
+  border: 2px solid #54ACBF;
+  color: #A7EBF2;
+}
+
+.btn.secondary:hover {
+  background: #54ACBF;
+  color: #fff;
+}
+
+/* =============================
+   HOME
+   ============================= */
+body.home-screen {
+  background: linear-gradient(135deg, #023859, #011C40);
+  color: #f9fbfd;
+  font-family: 'Poppins', sans-serif;
+}
+
+.home-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+header img.logo {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+.user-greeting {
+  font-weight: 500;
+  color: #A7EBF2;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  backdrop-filter: blur(6px);
+}
+
+nav button {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  background: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #A7EBF2;
+}
+
+nav button.active {
+  color: #fff;
+  border-bottom: 3px solid #54ACBF;
+}
+
+section.tab {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+section.tab.active {
+  display: block;
+}
+
+/* === Cards === */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  margin-bottom: 1rem;
+  transition: 0.3s;
+  color: #f8f9fa;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+  color: #A7EBF2;
+  margin-bottom: 0.5rem;
+}
+
+/* === Chat Íris === */
+.chat-iris {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+.chat-message {
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  max-width: 75%;
+  color: #011C40;
+}
+
+.chat-message.user {
+  background: #A7EBF2;
+  margin-left: auto;
+}
+
+.chat-input {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 0.5rem;
+}
+
+.chat-input button {
+  background: #54ACBF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chat-input button:hover {
+  background: #26658C;
+}
+
+/* ===== Organização das opções ===== */
+.etapa form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+/* Cada opção (radio ou checkbox) fica numa linha */
+.etapa form label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #EAF7FA;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Inputs radio e checkbox */
+.etapa form input[type="radio"],
+.etapa form input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #54ACBF; /* cor personalizada */
+  cursor: pointer;
+}
+
+/* Quando houver mais de uma pergunta curta em linha, forçar quebra */
+.etapa form br {
+  display: none;
+}
+
+/* Espaçamento extra entre grupos de perguntas */
+fieldset {
+  border: none;
+  margin-bottom: 1rem;
+}
+/* =============================
+   CABEÇALHO COM LOGO MAIS VISÍVEL
+   ============================= */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* sobe os elementos */
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  z-index: 100;
+}
+
+/* Logo maior e mais legível */
+.logo-area {
+  display: flex;
+  align-items: flex-start;
+}
+
+.logo-nome {
+  width: 200px; /* antes era 160px */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15)) brightness(1.15);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-nome:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* Ícone do usuário levemente mais alto */
+.user-area {
+  position: absolute;
+  top: 12px; /* subiu */
+  right: 28px;
+}
+
+.icon-user {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.icon-user:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Mantém o conteúdo abaixo do header fixo */
+.home-container {
+  margin-top: 110px; /* ajusta para não sobrepor */
+}
+
+
+
+/* =============================
+   EFEITO DE MARGENS ESCURAS
+   ============================= */
+body.home-screen {
+  background: radial-gradient(circle at center, #023859 0%, #011C40 70%, #000A1A 100%);
+  color: #f9fbfd;
+  font-family: 'Poppins', sans-serif;
+}
+
+.home-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+/* =============================
+   ÍRIS - ASSISTENTE VISUAL
+   ============================= */
+.iris-img {
+  width: 240px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.15));
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Animação de entrada com flutuação */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+/* Animações suaves para Íris */
+.fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+}
+.marca-nome {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.marca-img {
+  width: 220px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(167, 235, 242, 0.4));
+}
+
+/* === ALTERAÇÕES PERSONALIZADAS === */
+
+/* Nome da marca acima das funcionalidades */
+.marca-nome {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #A7EBF2;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 10px rgba(167, 235, 242, 0.4);
+}
+
+/* Impede clique na logo */
+.logo-nome {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ===== ÍRIS - POSICIONAMENTO FINAL CORRIGIDO ===== */
+.chat-iris {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Espaço dedicado à Íris acima do chat */
+.iris-wrapper {
+  position: relative;
+  height: 200px; /* reserva o espaço fixo acima */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#irisImage {
+  width: 200px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px rgba(167, 235, 242, 0.5));
+}
+
+#irisImage.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Área do chat */
+#chatBox {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+/* === CORREÇÃO FINAL - BLOQUEIO DE CLIQUES NAS ABAS (INCLUSIVE RESPOSTA DO BOT) === */
+
+/* Menu sempre acima de tudo */
+nav {
+  position: relative;
+  z-index: 10000 !important;
+}
+
+/* Garante que o chat nunca cubra o menu */
+#chat {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Área do chat e suas mensagens nunca ultrapassam sua seção */
+.chat-iris,
+.chat-message,
+.chat-input,
+#chatBox,
+.iris-wrapper {
+  position: relative;
+  z-index: 1 !important;
+  pointer-events: auto;
+}
+
+/* A imagem da Íris não interfere nos cliques */
+#irisImage {
+  pointer-events: none;
+  z-index: 0 !important;
+}
+
+/* Força abas e seções a ficarem acima */
+section.tab {
+  position: relative;
+  z-index: 2;
+}
+
+section.tab.active {
+  z-index: 5;
+}
+
+/* Garante que a home-container e o body nunca gerem novos contextos de empilhamento */
+body.home-screen,
+.home-container {
+  position: relative!important;
+  overflow: visible !important;
+}
+/* ===== ÍRIS GLOBAL (ao lado direito do container principal) ===== */
+.iris-global {
+  position: absolute;
+  top: 50%;                     /* centraliza verticalmente */
+  left: 50%;                    /* base no meio da tela */
+  transform: translate(420px, -50%); /* empurra para fora, alinhando ao lado direito */
+  width: 240px;
+  height: auto;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.iris-global.visible {
+  opacity: 1;
+  transform: translate(420px, -50%) scale(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

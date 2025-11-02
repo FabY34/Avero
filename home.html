@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avero - Home</title>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#023859">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registrado ✅'))
+        .catch(err => console.error('Erro ao registrar o Service Worker:', err));
+    });
+  }
+</script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="home-screen">
+  <header class="app-header">
+    <div class="logo-area">
+      <img src="assets/logo-nome.png" alt="Logo Avero" class="logo-nome">
+    </div>
+  </header>
+
+  <div class="home-container">
+
+    <div class="marca-nome">
+      <img src="assets/nome.png" alt="Avero" class="marca-img">
+    </div>
+
+    <!-- ÍRIS GLOBAL (fora das abas) -->
+    <div id="irisGlobal" class="iris-global" aria-hidden="true">
+      <img id="irisImageGlobal" src="assets/iris.png" alt="Assistente Íris" class="iris-img">
+    </div>
+
+    <nav>
+      <button class="tab-btn active" data-tab="cursos">Cursos</button>
+      <button class="tab-btn" data-tab="faculdades">Faculdades</button>
+      <button class="tab-btn" data-tab="vocacional">Vocacional</button>
+      <button class="tab-btn" data-tab="metas">Metas</button>
+      <button class="tab-btn" data-tab="desempenho">Desempenho</button>
+      <button class="tab-btn" data-tab="chat">Chat Íris</button>
+    </nav>
+
+    <section id="cursos" class="tab active">
+      <h2>Cursos Pré-Vestibulares</h2>
+      <div class="card">
+        <h3>Curso Intensivo ENEM Online</h3>
+        <p>Gratuito • Duração: 3 meses • Modalidade: Online</p>
+        <p><strong>Bolsas:</strong> disponíveis</p>
+      </div>
+      <div class="card">
+        <h3>Pré-Vestibular Popular Alfa</h3>
+        <p>Presencial • Local: São Paulo</p>
+        <p><strong>Modalidade:</strong> Social</p>
+      </div>
+    </section>
+
+    <section id="faculdades" class="tab">
+      <h2>Faculdades Recomendadas</h2>
+      <div class="card">
+        <h3>Universidade Federal de Minas Gerais (UFMG)</h3>
+        <p>⭐ Qualidade: ENADE 5 • 💰 Custo-benefício: Alto • 🎯 Aderência: Excelente</p>
+      </div>
+      <div class="card">
+        <h3>Universidade Estácio de Sá</h3>
+        <p>⭐ Qualidade: 3 • 💰 Custo-benefício: Médio • 🎯 Aderência: Boa</p>
+      </div>
+    </section>
+
+    <section id="vocacional" class="tab">
+      <h2>Teste Vocacional Simplificado</h2>
+      <div class="card">
+        <p>Responda algumas perguntas rápidas para descobrir as áreas mais compatíveis com seu perfil.</p>
+        <button class="btn full" onclick="window.location.href='questionario.html'">Fazer teste</button>
+      </div>
+    </section>
+
+    <section id="metas" class="tab">
+      <h2>Trilhas e Metas da Íris</h2>
+      <div class="card">
+        <p>🎯 <strong>Meta do mês:</strong> Atualizar notas do ENEM.</p>
+        <p>⏰ Faltam <strong>22 dias</strong> para o próximo follow-up!</p>
+      </div>
+      <div class="card">
+        <p>📚 <strong>Dica da Íris:</strong> Veja novas bolsas disponíveis em sua região.</p>
+      </div>
+    </section>
+
+    <section id="desempenho" class="tab">
+      <h2>Atualização de Desempenho</h2>
+      <div class="card">
+        <p>📈 Média atual: <strong>720 pontos</strong></p>
+        <p>📊 Evolução mensal: +5%</p>
+      </div>
+    </section>
+
+    <!-- ==== CHAT ÍRIS ==== -->
+    <section id="chat" class="tab">
+      <h2>Chat com a IA Íris</h2>
+      <div class="chat-iris">
+        <!-- Íris agora é global, removida daqui -->
+        <div id="chatBox">
+          <div class="chat-message">Olá! Sou a Íris 😊 Como posso te ajudar hoje?</div>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="userMessage" placeholder="Digite sua mensagem...">
+          <button id="sendMessage">Enviar</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
+
+
+

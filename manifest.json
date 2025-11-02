@@ -1,0 +1,22 @@
+{
+  "name": "Avero",
+  "short_name": "Avero",
+  "description": "Assistente Íris - Jornada educacional personalizada.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#011C40",
+  "theme_color": "#023859",
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

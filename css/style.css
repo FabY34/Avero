@@ -355,49 +355,77 @@ input[type="number"]::placeholder {
 }
 
 /* =============================
-   HOME
+   HOME (VERSÃO RESPONSIVA FINAL)
    ============================= */
+
 body.home-screen {
-  background: linear-gradient(135deg, #023859, #011C40);
+  background: radial-gradient(circle at center, #023859 0%, #011C40 70%, #000A1A 100%);
   color: #f9fbfd;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-.home-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-header {
+/* ===== Header ===== */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.8rem 1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  backdrop-filter: blur(8px);
 }
 
-header img.logo {
-  width: 140px;
+.logo-nome {
+  width: 160px;
   height: auto;
   object-fit: contain;
+  pointer-events: none;
 }
 
-.user-greeting {
-  font-weight: 500;
-  color: #A7EBF2;
+/* ===== Container principal ===== */
+.home-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 90px; /* espaço abaixo do header fixo */
+  padding: 1rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  overflow-x: hidden;
 }
 
+/* ===== Marca Avero ===== */
+.marca-nome {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.marca-img {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(167, 235, 242, 0.4));
+}
+
+/* ===== Menu de abas ===== */
 nav {
   display: flex;
-  justify-content: space-around;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 1.5rem;
   overflow-x: auto;
-  backdrop-filter: blur(6px);
+  justify-content: flex-start;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin-bottom: 1.2rem;
   scroll-behavior: smooth;
-  padding: 0 10px;
 }
 
 nav::-webkit-scrollbar {
@@ -405,21 +433,26 @@ nav::-webkit-scrollbar {
 }
 
 nav button {
-  flex: 1;
-  padding: 0.8rem;
-  border: none;
+  flex-shrink: 0;
   background: none;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
   font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+  font-size: 0.95rem;
   color: #A7EBF2;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
 }
 
 nav button.active {
+  background: rgba(84, 172, 191, 0.3);
   color: #fff;
   border-bottom: 3px solid #54ACBF;
 }
 
+/* ===== Seções ===== */
 section.tab {
   display: none;
   animation: fadeIn 0.3s ease;
@@ -429,32 +462,49 @@ section.tab.active {
   display: block;
 }
 
-/* === Cards === */
+/* ===== Cards ===== */
 .card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   margin-bottom: 1rem;
-  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   color: #f8f9fa;
+  transition: 0.3s;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-.card h3 {
-  color: #A7EBF2;
-  margin-bottom: 0.5rem;
+/* ===== Íris (centralizada e responsiva) ===== */
+.iris-global {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
 }
 
-/* === Chat Íris === */
+.iris-global.visible {
+  opacity: 1;
+}
+
+.iris-img {
+  width: 180px;
+  height: auto;
+  display: block;
+}
+
+/* ===== Chat Íris ===== */
 .chat-iris {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
   border-radius: 16px;
+  overflow-x: hidden;
 }
 
 .chat-message {
@@ -498,6 +548,46 @@ section.tab.active {
 .chat-input button:hover {
   background: #26658C;
 }
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+  .home-container {
+    margin-top: 80px;
+    padding: 0.8rem;
+  }
+
+  .logo-nome {
+    width: 130px;
+  }
+
+  .iris-img {
+    width: 150px;
+  }
+
+  nav button {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .card {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .iris-img {
+    width: 130px;
+  }
+
+  .marca-img {
+    width: 160px;
+  }
+
+  .home-container {
+    padding: 0.6rem;
+  }
+}
+
 
 /* ===== Organização das opções ===== */
 .etapa form {

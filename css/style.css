@@ -396,6 +396,12 @@ nav {
   margin-bottom: 1.5rem;
   overflow-x: auto;
   backdrop-filter: blur(6px);
+  scroll-behavior: smooth;
+  padding: 0 10px;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
 }
 
 nav button {
@@ -784,24 +790,45 @@ body.home-screen,
   position: relative!important;
   overflow: visible !important;
 }
-/* ===== ÍRIS GLOBAL (ao lado direito do container principal) ===== */
+/* ===== ÍRIS GLOBAL RESPONSIVA ===== */
 .iris-global {
-  position: absolute;
-  top: 50%;                     /* centraliza verticalmente */
-  left: 50%;                    /* base no meio da tela */
-  transform: translate(420px, -50%); /* empurra para fora, alinhando ao lado direito */
-  width: 240px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
   height: auto;
   pointer-events: none;
-  z-index: 50;
   opacity: 0;
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .iris-global.visible {
   opacity: 1;
-  transform: translate(420px, -50%) scale(1);
+  transform: scale(1);
 }
+/* ===== Ajustes para telas pequenas ===== */
+@media (max-width: 768px) {
+  .home-container {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  header img.logo {
+    width: 120px;
+  }
+
+  nav button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .card {
+    padding: 0.8rem;
+  }
+}
+
 
 
 
